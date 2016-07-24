@@ -1,0 +1,287 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('../fonts/Press_Start_2P/PressStart2P-Regular.ttf');
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(114, 197, 247);
+  color: rgb(216,216,216);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+#header {
+  font-size: 24px;
+}
+
+#whole-container {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  margin-left: -396.5px;
+  margin-top: -329.5px;
+  top: 50%;
+}
+
+#container {
+  background-color: rgb(0, 0, 0);
+  border: 5px solid rgb(140,140,140);
+  display: inline-block;
+  height: 649px;
+}
+
+#container td {
+  border: 2px solid rgb(176,176,176);
+}
+
+#stats tbody {
+  font-size: 12px;
+}
+
+#lines-counter-div {
+  background-color: rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(176, 176, 176);
+  height: 49px;
+  padding-top: 5px;
+  position: absolute;
+  text-align: center;
+}
+
+#messages {
+  bottom: 5px;
+  color: rgb(114, 197, 247);
+  font-size: 11px;
+  position: relative;
+}
+
+#matrix {
+  height: 618.2px;
+  width: 281px;
+}
+
+#matrix td {
+  border: 1px solid rgb(0, 0, 0);
+  height: 25px;
+  width: 25px;
+}
+
+#hold td, #stats td, #next1 td, #next2 td, #next3 td, #next4 td, #next5 td {
+  border: 1px solid rgb(0, 0, 0);
+  height: 15px;
+  width: 15px;
+}
+
+#help-div, #high-scores-div, #entry-div {
+  display: none;
+}
+
+#help-table {
+  font-size: 14px;
+  position: relative;
+  top: 150px;
+}
+
+#help-table th, #help-table td {
+  height: 36px;
+}
+
+#help-table td {
+  border: 1px solid rgb(0,0,0);
+  font-size: 11px;
+}
+
+#help-btn:hover {
+  cursor: pointer;
+}
+
+#high-scores-table {
+  font-size: 14px;
+  position: relative;
+  top: 90px;
+}
+
+#options {
+  padding-right: 5px;
+  text-align: right;
+}
+
+.key, #backspace-key, #music-icon:hover, #sound-icon:hover {
+  cursor: pointer;
+}
+
+#entry-table {
+  position: relative;
+  top: 200px;
+}
+
+#entry-table td {
+  border: 1px solid rgb(0, 0, 0);
+  font-size: 12px;
+  height: 24px;
+}
+
+#initial-1 {
+  font-size: 100px;
+  text-align: right;
+}
+
+#initial-3 {
+  text-align: left;
+}
+
+#name-submit {
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  font-family: 'Press Start 2P', cursive;
+  margin: 20px auto;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
+#high-scores-table th, #high-scores-table td {
+  border: 1px solid rgb(0, 0, 0);
+  height: 40px;
+}
+
+#high-scores-table td:first-child {
+  text-align: right;
+}
+
+#scoreboard-td th, #level-counter-td th {
+  text-align: left;
+}
+
+#scoreboard-td td, #level-counter-td td {
+  border: 1px solid rgb(0, 0, 0);
+  text-align: right;
+}
+
+.active {
+  color: rgb(114, 197, 247);
+}
+
+.purple {
+  color: rgb(175,82,179);
+}
+.blue {
+  color: rgb(92,86,219);
+}
+.red {
+  color: rgb(204,51,51);
+}
+.yellow {
+  color: rgb(211,230,46);
+}
+.green {
+  color: rgb(37,196,88);
+}
+.orange {
+  color: rgb(235,186,26);
+}
+.cyan {
+  color: rgb(43,196,204);
+}
+.t-symbol {
+  background-color: rgb(175,82,179);
+}
+.j-symbol {
+  background-color: rgb(92,86,219);
+}
+.z-symbol {
+  background-color: rgb(204,51,51);
+}
+.o-symbol {
+  background-color: rgb(211,230,46);
+}
+.s-symbol {
+  background-color: rgb(37,196,88);
+}
+.l-symbol {
+  background-color: rgb(235,186,26);
+}
+.i-symbol {
+  background-color: rgb(43,196,204);
+}
+
+.blink {
+  animation: blink 1s step-start 0s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.clear {
+  animation: fadeOut 300ms ease-out 1 forwards;
+}
+
+@keyframes fadeOut {
+ 0% {
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+ }
+ 50% {
+  box-shadow: 0 0 10px 2px rgb(255, 255, 255);
+ }
+ 100% {
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+ }
+}
+
+/* versus mode */
+.key-input {
+  border: 0;
+}
+
+#opponent-header {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+#opponent-container {
+  background-color: rgb(0, 0, 0);
+  border-top: 5px solid rgb(140,140,140);
+  border-right: 5px solid rgb(140,140,140);
+  border-bottom: 5px solid rgb(140,140,140);
+  display: inline-block;
+  height: 649px;
+}
+
+#mini-matrix {
+  height: 421px;
+  margin: 0;
+  padding: 0;
+  width: 211px;
+}
+
+.mini-tile {
+  background-color: #000;
+  border: 1px solid #000;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+}
+
+/* chat */
+#chat-container {
+  border-top: 2px solid rgb(176,176,176);
+  height: 238px;
+  margin: 0;
+  padding: 0;
+  width: 211px;
+}

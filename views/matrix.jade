@@ -1,0 +1,386 @@
+table#container
+  thead
+    tr
+      th
+      th#header
+        span.purple T
+        span.blue e
+        span.red t
+        span.yellow r
+        span.green i
+        span.orange s
+        span.cyan !
+      th#options
+        i#sound-icon.fa.fa-volume-up.active(aria-hidden='true')
+        i#music-icon.fa.fa-music(aria-hidden='true')
+  tbody
+    tr
+      td#hold-td
+        table#hold
+          thead
+            tr
+              th(colspan='6') Hold
+          tbody
+            tr
+              td(colspan='6')
+            tr
+              td(rowspan='2')
+              td(data-hold='1')
+              td(data-hold='2')
+              td(data-hold='3')
+              td(data-hold='4')
+              td(rowspan='2')
+            tr
+              td(data-hold='5')
+              td(data-hold='6')
+              td(data-hold='7')
+              td(data-hold='8')
+            tr
+              td(colspan='6')
+            tr
+      td#matrix-td(rowspan='3')
+        #lines-counter-div
+          | Lines-
+          span#lines-counter 000
+          p#messages
+            | Press enter to start and esc to pause
+        #help-div
+          table#help-table
+            thead
+              tr
+                th(colspan='2') Controls
+            tbody
+              tr
+                td
+                  i.fa.fa-arrow-left(aria-hidden='true')
+                  i.fa.fa-arrow-right(aria-hidden='true')
+                td Move Left/Right
+              tr
+                td
+                  i.fa.fa-arrow-down(aria-hidden='true')
+                td Soft drop
+              tr
+                td
+                  i.fa.fa-arrow-up(aria-hidden='true')
+                td Rotate Right
+              tr
+                td Z
+                td Rotate Left
+              tr
+                td Space
+                td Hard drop
+              tr
+                td Shift
+                td Hold piece
+              tr
+                td Esc
+                td Pause
+        #high-scores-div
+          table#high-scores-table
+            thead
+              tr
+                th(colspan='3') High Scores
+            tbody
+              tr
+                td 1.
+                td#initials-0
+                td#score-0
+              tr
+                td 2.
+                td#initials-1
+                td#score-1
+              tr
+                td 3.
+                td#initials-2
+                td#score-2
+              tr
+                td 4.
+                td#initials-3
+                td#score-3
+              tr
+                td 5.
+                td#initials-4
+                td#score-4
+              tr
+                td 6.
+                td#initials-5
+                td#score-5
+              tr
+                td 7.
+                td#initials-6
+                td#score-6
+              tr
+                td 8.
+                td#initials-7
+                td#score-7
+              tr
+                td 9.
+                td#initials-8
+                td#score-8
+              tr
+                td 10.
+                td#initials-9
+                td#score-9
+        #entry-div
+          table#entry-table
+            tbody
+              tr
+                td(colspan='9') Congratulations on making the top 10!
+              tr
+                td(colspan='9') Enter your initials:
+              tr
+                td#initial-1.blink(colspan='3') _
+                td#initial-2(colspan='3') _
+                td#initial-3(colspan='3') _
+              tr
+                td.key A
+                td.key B
+                td.key C
+                td.key D
+                td.key E
+                td.key F
+                td.key G
+                td.key H
+                td#backspace-key ←
+              tr
+                td.key I
+                td.key J
+                td.key K
+                td.key L
+                td.key M
+                td.key N
+                td.key O
+                td.key P
+                td.key Q
+              tr
+                td.key R
+                td.key S
+                td.key T
+                td.key U
+                td.key V
+                td.key W
+                td.key X
+                td.key Y
+                td.key Z
+              tr
+                td(colspan='9')
+                  button#name-submit Enter the hall of fame!
+      td#scoreboard-td
+        table#scoreboard
+          thead
+            tr
+              th Top
+          tbody
+            tr
+              td#top 000000
+        table
+          thead
+            tr
+              th Score
+          tbody
+            tr
+              td#score 000000
+    tr
+      td#stats-td(rowspan='2')
+        table#stats
+          thead
+            tr
+              th(colspan='8') Statistics
+          tbody
+            tr
+              td(colspan='8')
+            tr
+              td(colspan='2', rowspan='2')
+              td.t-symbol
+              td.t-symbol
+              td.t-symbol
+              td(rowspan='2')
+              td#T(rowspan='2') 000
+              td(rowspan='2')
+            tr
+              td
+              td.t-symbol
+              td
+            tr
+              td(colspan='8')
+            tr
+              td(colspan='2', rowspan='2')
+              td.j-symbol
+              td.j-symbol
+              td.j-symbol
+              td(rowspan='2')
+              td#J(rowspan='2') 000
+              td(rowspan='2')
+            tr
+              td(colspan='2')
+              td.j-symbol
+            tr
+              td(colspan='8')
+            tr
+              td(colspan='2', rowspan='2')
+              td.z-symbol
+              td.z-symbol
+              td
+              td(rowspan='2')
+              td#Z(rowspan='2') 000
+              td(rowspan='2')
+            tr
+              td
+              td.z-symbol
+              td.z-symbol
+            tr
+              td(colspan='8')
+            tr
+              td(colspan='3', rowspan='2')
+              td.o-symbol
+              td.o-symbol
+              td(rowspan='2')
+              td#O(rowspan='2') 000
+              td(rowspan='2')
+            tr
+              td.o-symbol
+              td.o-symbol
+            tr
+              td(colspan='8')
+            tr
+              td(colspan='2', rowspan='2')
+              td
+              td.s-symbol
+              td.s-symbol
+              td(rowspan='2')
+              td#S(rowspan='2') 000
+              td(rowspan='2')
+            tr
+              td.s-symbol
+              td.s-symbol
+              td
+            tr
+              td(colspan='8')
+            tr
+              td(colspan='2', rowspan='2')
+              td.l-symbol
+              td.l-symbol
+              td.l-symbol
+              td(rowspan='2')
+              td#L(rowspan='2') 000
+              td(rowspan='2')
+            tr
+              td.l-symbol
+              td
+              td
+            tr
+              td(colspan='8')
+            tr
+              td
+              td.i-symbol
+              td.i-symbol
+              td.i-symbol
+              td.i-symbol
+              td
+              td#I 000
+              td
+            tr
+              td(colspan='8')
+      td#next-td
+        table#next1
+          thead
+            tr
+              th(colspan='6') Next
+          tbody
+            tr
+              td(colspan='6')
+            tr
+              td(rowspan='2')
+              td(data-next1='1')
+              td(data-next1='2')
+              td(data-next1='3')
+              td(data-next1='4')
+              td(rowspan='2')
+            tr
+              td(data-next1='5')
+              td(data-next1='6')
+              td(data-next1='7')
+              td(data-next1='8')
+            tr
+              td(colspan='6')
+        table#next2
+          tbody
+            tr
+              td(colspan='6')
+            tr
+              td(rowspan='2')
+              td(data-next2='1')
+              td(data-next2='2')
+              td(data-next2='3')
+              td(data-next2='4')
+              td(rowspan='2')
+            tr
+              td(data-next2='5')
+              td(data-next2='6')
+              td(data-next2='7')
+              td(data-next2='8')
+            tr
+              td(colspan='6')
+        table#next3
+          tbody
+            tr
+              td(colspan='6')
+            tr
+              td(rowspan='2')
+              td(data-next3='1')
+              td(data-next3='2')
+              td(data-next3='3')
+              td(data-next3='4')
+              td(rowspan='2')
+            tr
+              td(data-next3='5')
+              td(data-next3='6')
+              td(data-next3='7')
+              td(data-next3='8')
+            tr
+              td(colspan='6')
+        table#next4
+          tbody
+            tr
+              td(colspan='6')
+            tr
+              td(rowspan='2')
+              td(data-next4='1')
+              td(data-next4='2')
+              td(data-next4='3')
+              td(data-next4='4')
+              td(rowspan='2')
+            tr
+              td(data-next4='5')
+              td(data-next4='6')
+              td(data-next4='7')
+              td(data-next4='8')
+            tr
+              td(colspan='6')
+        table#next5
+          tbody
+            tr
+              td(colspan='6')
+            tr
+              td(rowspan='2')
+              td(data-next5='1')
+              td(data-next5='2')
+              td(data-next5='3')
+              td(data-next5='4')
+              td(rowspan='2')
+            tr
+              td(data-next5='5')
+              td(data-next5='6')
+              td(data-next5='7')
+              td(data-next5='8')
+            tr
+              td(colspan='6')
+    tr
+      td#level-counter-td
+        table
+          thead
+            tr
+              th Level
+          tbody
+            tr
+              td#level-counter 01

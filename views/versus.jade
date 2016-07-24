@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  div#key-form
+    label Send this room code to your friend.
+    input.key-input(type="text" onClick="this.select();")
+  div#whole-container
+    include matrix
+    div#opponent-container
+      table#mini-matrix
+        tbody#mini-matrix-tbody
+      include chat
+  script(src="/js/tetris.js")
+  script(src="/js/script.js")
+  script(src="/js/versus.js")
+  script.
+    $(".key-input").val(window.location.pathname.split("/")[2]).attr("size", $(".key-input").val().length+2);
+    $(".key-input").on("click", function() {
+      document.execCommand("copy");
+    });

@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  button.create-btn(type="button") Create Room
+  br
+  label Room Key
+  input#key-input(type=text)
+  button.join-btn(type="button") Join Room
+  script.
+    $(".create-btn").on("click", function() {
+      let newRoom = createKey();
+      window.location.pathname = "/versus/" + newRoom;
+    });
+    $(".join-btn").on("click", function() {
+    window.location.pathname = "/versus/" + $("#key-input").val();
+    });
+    
+    function createKey() {
+    	let key = "";
+    	const KEY_LENGTH = 10;
+      let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      for (let i = 0; i < KEY_LENGTH; i++) {
+      	key += chars[Math.floor(Math.random() * 62)];
+      }
+      return key;
+    }
