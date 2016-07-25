@@ -16,7 +16,11 @@ socket.on("game-start", function() {
 
 socket.on("send-lines", function(n) {
   matrix.shiftUp(n);
-})
+});
+
+socket.on("game-over", function() {
+  clearInterval(matrix.gravityID);
+});
 
 for (let i = 0; i < matrix.NUM_ROW; i++) {
   let tr = $("<tr>");

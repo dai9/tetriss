@@ -26,6 +26,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use('/versus', function(req, res, next) {
+//
+//   next();
+// });
+
 let rooms = {};
 io.on('connection', function(socket) {
   let gKey;
@@ -52,6 +57,11 @@ io.on('connection', function(socket) {
     let rowsToSend = n < 4 ? --n : n;
     io.to(opponent).emit("send-lines", rowsToSend);
   });
+
+  socket.on("game-over", function() {
+    let opponent = rooms[gKey].indexOf(socket.id) === 0 ? rooms[gKey][1] : rooms[gKey][0];
+    io.to(opponent).emit("game-over");
+  })
 
   socket.on('disconnect', function(){
     console.log('user disconnected');

@@ -207,6 +207,9 @@ Matrix.prototype.spawn = function(type) {
   this.currentPiece = {type: piece.type, orientation: 0};
   if (this.isGameOver()) {
     this.setGameOver();
+    if (this.versus) {
+      socket.emit("game-over");
+    }
   }
   if (this.bag.length === this.NEXT_WINDOWS) {
     this.getPieces();
@@ -1010,7 +1013,7 @@ Matrix.prototype.lineClear = function() {
   }
   if (linesCleared > 0) {
     this.updatePoints(linesCleared);
-    if (linesCleared > 1) {
+    if (linesCleared > 1 && this.versus) {
       socket.emit("send-lines", linesCleared);
     }
   }
@@ -1044,9 +1047,9 @@ Matrix.prototype.shiftDown = function() {
  */
 Matrix.prototype.animateClear = function(row) {
   for (let i = 0; i < row.length; i++) {
-    $(`[data-coord='${row[i].coord[0]},${row[i].coord[1]}']`).addClass("clear");
+    $(`.tile-container[data-coord='${row[i].coord[0]},${row[i].coord[1]}']`).addClass("clear");
     setTimeout(function() {
-      $(`[data-coord='${row[i].coord[0]},${row[i].coord[1]}']`).removeClass("clear");
+      $(`.tile-container[data-coord='${row[i].coord[0]},${row[i].coord[1]}']`).removeClass("clear");
     }, 300);
   }
 };
