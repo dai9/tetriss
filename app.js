@@ -26,13 +26,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/versus', function(req, res, next) {
-//
-//   next();
-// });
-
 let rooms = {};
+let players = {};
 io.on('connection', function(socket) {
+  console.log("SOCKET.ID: " + socket.id);
+  players[socket.id] = false;
   let gKey;
   socket.on("join-room", function(key) {
     gKey = key;
@@ -43,7 +41,9 @@ io.on('connection', function(socket) {
     }
     rooms[key].push(socket.id);
     if (rooms[key].length === 2) {
-      io.emit("game-start");
+      for (let i = 0; i < rooms[key].length; i++) {
+        io.to(rooms[key][i]).emit("enough-players");
+      }
     }
   });
 
@@ -58,13 +58,37 @@ io.on('connection', function(socket) {
     io.to(opponent).emit("send-lines", rowsToSend);
   });
 
+  socket.on("ready", function() {
+    players[socket.id] = true;
+    if (rooms[gKey].every((id) => { return players[id] === true })) {
+      console.log("all ready");
+      for (let i = 0; i < rooms[gKey].length; i++) {
+        players[rooms[gKey][i]] = false;
+        io.to(rooms[gKey][i]).emit("game-start");
+      }
+    }
+  });
+
+  socket.on("cancel-ready", function() {
+    players[socket.id] = false;
+  });
+
   socket.on("game-over", function() {
     let opponent = rooms[gKey].indexOf(socket.id) === 0 ? rooms[gKey][1] : rooms[gKey][0];
     io.to(opponent).emit("game-over");
-  })
+  });
 
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
+  socket.on('disconnect', function() {
+    console.log(gKey);
+    console.log(rooms[gKey]);
+    console.log(socket.id);
+    let i = rooms[gKey].indexOf(socket.id);
+    rooms[gKey].splice(i, 1);
+    delete players[socket.id];
+    for (let i = 0; i < rooms[gKey].length; i++) {
+      io.to(rooms[gKey][i]).emit("not-enough-players");
+    }
+    console.log(socket.id + ' disconnected');
   });
 });
 

@@ -2,7 +2,7 @@ extends layout
 
 block content
   div#key-form
-    label Send this room code to your friend.
+    label Send this key to your friend: 
     input.key-input(type="text" onClick="this.select();")
   div#whole-container
     include matrix
@@ -10,11 +10,17 @@ block content
       table#mini-matrix
         tbody#mini-matrix-tbody
       include chat
+        button#ready-btn(type="text" data-ready=false disabled) Ready
   script(src="/js/tetris.js")
   script(src="/js/script.js")
   script(src="/js/versus.js")
   script.
-    $(".key-input").val(window.location.pathname.split("/")[2]).attr("size", $(".key-input").val().length+2);
+    $("#messages").text("Waiting for opponent to connect...")
+    $(".key-input").val(window.location.pathname.split("/")[2]).attr("size", $(".key-input").val().length);
     $(".key-input").on("click", function() {
       document.execCommand("copy");
+    });
+    $("#send-msg").on("click", function() {
+    let msg = $("#chat-input").val();
+      $("#chat-ol").append($(`<li>${msg}</li>`));
     });

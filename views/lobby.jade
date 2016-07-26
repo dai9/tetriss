@@ -1,18 +1,25 @@
 extends layout
 
 block content
-  button.create-btn(type="button") Create Room
-  br
-  label Room Key
-  input#key-input(type=text)
-  button.join-btn(type="button") Join Room
+  table
+    tbody
+      tr
+        td
+          button.create-btn(type="button") Create Room
+        td
+          button.join-btn(type="button") Join Room
+      tr
+        td
+        td
+          label Key: 
+          input#key-input(type=text placeholder="Friend's key...")
   script.
     $(".create-btn").on("click", function() {
       let newRoom = createKey();
       window.location.pathname = "/versus/" + newRoom;
     });
     $(".join-btn").on("click", function() {
-    window.location.pathname = "/versus/" + $("#key-input").val();
+      window.location.pathname = "/versus/" + $("#key-input").val();
     });
     
     function createKey() {
