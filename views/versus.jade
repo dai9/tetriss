@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  div#key-form
+  div.key-form
     label Send this key to your friend: 
     input.key-input(type="text" onClick="this.select();")
   div#whole-container
@@ -21,6 +21,6 @@ block content
       document.execCommand("copy");
     });
     $("#send-msg").on("click", function() {
-    let msg = $("#chat-input").val();
+    var msg = $("#chat-input").val();
       $("#chat-ol").append($(`<li>${msg}</li>`));
     });

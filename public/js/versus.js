@@ -12,6 +12,7 @@ socket.on("matrix-data", function(grid) {
 });
 
 socket.on("enough-players", function() {
+  $(".key-form").css("display", "none");
   $("#ready-btn").css("background-color", "rgba(0, 128, 0, 1)").removeAttr("disabled");
 });
 

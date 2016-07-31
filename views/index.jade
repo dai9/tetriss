@@ -34,8 +34,8 @@ block content
     });
     
     var colorScroll = function() {
-      let letters = $(".logo").children();
-      for (let i = 0; i < letters.length; i++) {
+      var letters = $(".logo").children();
+      for (var i = 0; i < letters.length; i++) {
         switch (letters[i].className) {
           case "purple":
           letters[i].className = "blue";
