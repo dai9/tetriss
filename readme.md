@@ -1,9 +1,6 @@
 # Tetris!
 A JavaScript implementation of the classic puzzle game, Tetris.
 
-## To Play
-tetrisapp.herokuapp.com to play.
-
 ## Background
 I created Tetris! for my quarter one project after about six weeks of studying JavaScript (and a bit of HTML/CSS). It was initially a purely front-end project that used Firebase to persist high scores across sessions.
 
