@@ -9,8 +9,8 @@ I created Tetriss for my first project at Galvanize bootcamp after 5 weeks of st
 Since then, I've been slowly making changes to the game as I continue my studies at Galvanize. I plan to add a versus mode which will utilize Socket.IO to allow friends to play against each other in real time. After that, I would like to switch from Firebase to a Postgres database. These changes will come slowly as I am still finishing up my last few months at Galvanize.
 
 ## Screenshots
-![Screenshot of home screen](http://i.imgur.com/32UNdZs.png =400)
-![Screenshot of solo mode](http://i.imgur.com/qYAmV7w.png =400)
+![Screenshot of home screen](http://i.imgur.com/32UNdZs.png =500x456)
+![Screenshot of solo mode](http://i.imgur.com/qYAmV7w.png =500x555)
 
 ## Technologies
 - jQuery
