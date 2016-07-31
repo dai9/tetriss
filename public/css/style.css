@@ -5,6 +5,11 @@
 
 html {
   box-sizing: border-box;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 body {
@@ -31,7 +36,12 @@ body {
 }
 
 .logo {
+  cursor: default;
   font-size: 3em;
+}
+
+.solo-pointer, .versus-pointer {
+  cursor: default;
 }
 
 a {

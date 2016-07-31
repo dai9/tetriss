@@ -9,23 +9,23 @@ block content
           include logo
     tbody
       tr
-        td#solo-pointer &rarr;
+        td.solo-pointer &rarr;
         td
           a(href="/solo") Solo
       tr
-        td#versus-pointer
+        td.versus-pointer
         td
           a(href="/versus") Versus
   script.
     $("body").on("keydown", function(e) {
       if (e.which === 38) {
-        $("#solo-pointer").text("→");
-        $("#versus-pointer").text("");
+        $(".solo-pointer").text("→");
+        $(".versus-pointer").text("");
       } else if (e.which === 40) {
-        $("#solo-pointer").text("");
-        $("#versus-pointer").text("→");
+        $(".solo-pointer").text("");
+        $(".versus-pointer").text("→");
       } else if (e.which === 13) {
-        if ($("#solo-pointer").text() === "→") {
+        if ($(".solo-pointer").text() === "→") {
           window.location.pathname = "/solo"
         } else {
           window.location.pathname = "/versus"
