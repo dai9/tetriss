@@ -40,7 +40,7 @@ body {
   font-size: 3em;
 }
 
-.solo-pointer, .versus-pointer {
+.solo-pointer, .versus-pointer, .create-pointer, .join-pointer, .back-pointer {
   cursor: default;
 }
 
@@ -55,10 +55,11 @@ table {
 }
 
 #solo-container {
-  position: absolute;
+  cursor: default;
   left: 50%;
   margin-left: -288.5px;
   margin-top: -329.5px;
+  position: absolute;
   top: 50%;
 }
 
@@ -67,6 +68,7 @@ table {
 }
 
 #whole-container {
+  cursor: default;
   display: inline-block;
   height: 659px;
   position: absolute;
