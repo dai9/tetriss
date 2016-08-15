@@ -42,7 +42,13 @@ socket.on("game-start", function() {
   matrix.start();
 });
 
-$("#ready-btn").on("click", function() {
+socket.on("receive-message", function(msg) {
+  $(".chat-ol").append($(`<li>Opponent: ${msg}</li>`));
+  $('.chat-ol').scrollTop($('.chat-ol').prop("scrollHeight"));
+});
+
+$("#ready-btn").on("click", function(e) {
+  e.preventDefault();
   if ($(this).data("ready")) {
     socket.emit("cancel-ready", !$(this).data("ready"));
     $("#ready-btn").css("background-color", "rgba(0, 128, 0, 1)");
@@ -51,6 +57,17 @@ $("#ready-btn").on("click", function() {
     $("#ready-btn").css("background-color", "rgba(0, 0, 255, 1)");
   }
   $(this).data("ready", !$(this).data("ready"));
+});
+
+$(".send-msg").on("click submit", function(e) {
+  e.preventDefault();
+  var msg = $(".chat-input").val();
+  if (msg.length > 0) {
+    $(".chat-ol").append($(`<li>You: ${msg}</li>`));
+    socket.emit("send-message", msg);
+    $(".chat-input").val("");
+  }
+  $('.chat-ol').scrollTop($('.chat-ol').prop("scrollHeight"));
 });
 
 for (let i = 0; i < matrix.NUM_ROW; i++) {
