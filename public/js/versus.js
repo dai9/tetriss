@@ -21,7 +21,7 @@ socket.on("not-enough-players", function() {
 });
 
 socket.on("send-lines", function(n) {
-  matrix.shiftUp(n);
+  matrix.shiftUpQueue += n;
 });
 
 socket.on("game-over", function() {

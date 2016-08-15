@@ -6,11 +6,11 @@ block content
       tr
         td.create-pointer &rarr;
         td
-          a(href="/versus/") Create Game
+          a.create-link(href="/versus/create") Create Game
       tr
         td.join-pointer
         td
-          a(href="/versus") Join Game
+          a.join-link(href="/versus/join") Join Game
       tr
         td.back-pointer
         td
@@ -55,6 +55,17 @@ block content
           window.location.href = "/";
         }
       }
+    });
+
+    $(".create-link").on("click", function(e) {
+      e.preventDefault();
+      var newRoom = createKey();
+      window.location.pathname = "/versus/" + newRoom;
+    });
+
+    $(".join-link").on("click", function(e) {
+      e.preventDefault();
+      $(".join-form").css("display", "block");
     });
     
     $(".join-btn").on("click", function(e) {

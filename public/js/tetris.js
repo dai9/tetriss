@@ -15,6 +15,7 @@ function Matrix() {
   this.holdLimit = false;
   this.activeTiles = null;
   this.ghostTiles = [];
+  this.shiftUpQueue = 0;
 
   this.gravityID = null;
   this.pointsDisplayID = null;
@@ -202,6 +203,10 @@ Matrix.prototype.getForce = function(currentLevel) {
  *     Uses its properties to update the game state of Matrix.
  */
 Matrix.prototype.spawn = function(type) {
+  if (this.shiftUpQueue > 0) {
+    this.shiftUp(this.shiftUpQueue);
+    this.shiftUpQueue = 0;
+  }
   let piece = type ? new Tetromino(type)
                    : new Tetromino(this.bag.shift());
   this.currentPiece = {type: piece.type, orientation: 0};

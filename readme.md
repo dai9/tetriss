@@ -12,10 +12,13 @@ Since then, I've been slowly making changes to the game as I continue my studies
 <img src="http://i.imgur.com/32UNdZs.png" alt="screenshot of homepage" height=425 />
 <img src="http://i.imgur.com/qYAmV7w.png" alt="screenshot of solo mode" height=425 />
 
-## Technologies
+## Challenges
+
+
+## Technologies Used
 - jQuery
 - Firebase
-- Socket.IO (added)
+- Socket.IO
 
 ## To Do
 - Persist scores via Postgres instead of Firebase.
