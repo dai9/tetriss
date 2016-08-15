@@ -1,7 +1,15 @@
 let socket = io();
 let key = window.location.pathname.split("/")[2]
-socket.emit("join-room", key);
 matrix.versus = true;
+socket.emit("joined-room", key);
+
+socket.on("joined-room", function() {
+  $(".chat-ol").append($(`<li>You have joined the game.</li>`));
+});
+
+socket.on("opponent-joined", function() {
+  $(".chat-ol").append($(`<li>Opponent has joined the game.</li>`));
+});
 
 socket.on("full-room", function() {
   console.log("room is full");

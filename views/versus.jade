@@ -20,7 +20,17 @@ block content
     $(".key-input").on("click", function() {
       document.execCommand("copy");
     });
-    $("#send-msg").on("click", function() {
-    var msg = $(".chat-input").val();
-      $(".chat-ol").append($(`<li>${msg}</li>`));
+    $(".send-msg").on("click submit", function(e) {
+      e.preventDefault();
+      var msg = $(".chat-input").val();
+      if (msg.length > 0) {
+        $(".chat-ol").append($(`<li>You: ${msg}</li>`));
+        socket.emit("send-message", msg);
+        $(".chat-input").val("");
+      }
+      $('.chat-ol').scrollTop($('.chat-ol').prop("scrollHeight"));
+    });
+    socket.on("receive-message", function(msg) {
+      $(".chat-ol").append($(`<li>Opponent: ${msg}</li>`));
+      $('.chat-ol').scrollTop($('.chat-ol').prop("scrollHeight"));
     });

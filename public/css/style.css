@@ -349,7 +349,11 @@ table {
   text-align: left;
 }
 
-.chat-form {
+.chat-ol li {
+  padding: 5px;
+}
+
+.chat-form-div {
   bottom: 3px;
   position: absolute;
 }
