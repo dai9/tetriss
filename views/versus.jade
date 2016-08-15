@@ -21,6 +21,6 @@ block content
       document.execCommand("copy");
     });
     $("#send-msg").on("click", function() {
-    var msg = $("#chat-input").val();
-      $("#chat-ol").append($(`<li>${msg}</li>`));
+    var msg = $(".chat-input").val();
+      $(".chat-ol").append($(`<li>${msg}</li>`));
     });

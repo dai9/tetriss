@@ -331,29 +331,27 @@ table {
 }
 
 /* CHAT */
-#chat-container {
-  border-top: 2px solid rgb(176,176,176);
+.chat-container {
+  border-top: 2px solid rgb(176, 176, 176);
   font-size: 10px;
-  height: 238px;
+  height: 231px;
   margin: 0;
   overflow: auto;
   width: 211px;
 }
 
-#chat-ol {
+.chat-ol {
+  height: 185px;
   list-style-type: none;
   margin: 0;
+  overflow-y: scroll;
   padding: 5px;
   text-align: left;
 }
 
-#chat-form {
+.chat-form {
   bottom: 3px;
   position: absolute;
-}
-
-#chat-input {
-  border: 0;
 }
 
 #ready-btn {
