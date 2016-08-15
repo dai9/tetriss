@@ -50,12 +50,26 @@ io.on('connection', function(socket) {
   });
 
   socket.on("matrix-data", function(grid) {
-    let opponent = rooms[gKey].indexOf(socket.id) === 0 ? rooms[gKey][1] : rooms[gKey][0];
+    let opponent;
+    if (rooms[gKey]) {
+      if (rooms[gKey][0] === socket.id) {
+        opponent = rooms[gKey][1];
+      } else {
+        opponent = rooms[gKey][0];
+      }
+    }
     io.to(opponent).emit("matrix-data", grid);
   });
 
   socket.on("send-lines", function(n) {
-    let opponent = rooms[gKey].indexOf(socket.id) === 0 ? rooms[gKey][1] : rooms[gKey][0];
+    let opponent;
+    if (rooms[gKey]) {
+      if (rooms[gKey][0] === socket.id) {
+        opponent = rooms[gKey][1];
+      } else {
+        opponent = rooms[gKey][0];
+      }
+    }
     let rowsToSend = n < 4 ? --n : n;
     io.to(opponent).emit("send-lines", rowsToSend);
   });
@@ -76,7 +90,14 @@ io.on('connection', function(socket) {
   });
 
   socket.on("game-over", function() {
-    let opponent = rooms[gKey].indexOf(socket.id) === 0 ? rooms[gKey][1] : rooms[gKey][0];
+    let opponent;
+    if (rooms[gKey]) {
+      if (rooms[gKey][0] === socket.id) {
+        opponent = rooms[gKey][1];
+      } else {
+        opponent = rooms[gKey][0];
+      }
+    }
     io.to(opponent).emit("game-over");
   });
 
