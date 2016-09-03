@@ -79,10 +79,10 @@ block content
 
     function createKey() {
       const KEY_LENGTH = 10;
+      const CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     	var key = "";
-      var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       for (var i = 0; i < KEY_LENGTH; i++) {
-      	key += chars[Math.floor(Math.random() * chars.length)];
+      	key += CHARS[Math.floor(Math.random() * CHARS.length)];
       }
       return key;
     }
