@@ -41,7 +41,7 @@ block content
         }
       } else if (e.which === 13) {
         if ($(".create-pointer").text() === "→") {
-          var newRoom = createKey();
+          var newRoom = createKey(10);
           window.location.pathname = "/versus/" + newRoom;
         } else if ($(".join-pointer").text() === "→") {
           $(".join-form").css("display", "block");
@@ -59,7 +59,7 @@ block content
 
     $(".create-link").on("click", function(e) {
       e.preventDefault();
-      var newRoom = createKey();
+      var newRoom = createKey(10);
       window.location.pathname = "/versus/" + newRoom;
     });
 
@@ -77,11 +77,10 @@ block content
       $(".join-form").css("display", "none");
     })
 
-    function createKey() {
-      const KEY_LENGTH = 10;
+    function createKey(keyLength) {
       const CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    	var key = "";
-      for (var i = 0; i < KEY_LENGTH; i++) {
+    	let key = "";
+      for (let i = 0; i < keyLength; i++) {
       	key += CHARS[Math.floor(Math.random() * CHARS.length)];
       }
       return key;
