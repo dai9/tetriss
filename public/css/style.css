@@ -287,10 +287,12 @@ table {
 
 /* LOBBY */
 .join-form {
+  align-items: center;
   background-color: rgba(0, 0, 0, 1);
   border: 1px solid rgba(255, 255, 255, 1);
   display: none;
   height: 200px;
+  justify-content: center;
   left: 50%;
   margin-left: -200px;
   margin-top: -100px;
@@ -299,8 +301,13 @@ table {
   width: 400px;
 }
 
-.key-label {
-  padding-top: 200px;
+.join-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.join-form form * {
+  margin: 5px;
 }
 
 /* VERSUS */

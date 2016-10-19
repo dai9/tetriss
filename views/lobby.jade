@@ -19,8 +19,9 @@ block content
     form
       label.key-label Enter a room key:
       input.key-input(type="text")
-      button.cancel-btn(type="button") Cancel
-      button.join-btn(type="submit") Join
+      div
+        button.cancel-btn(type="button") Cancel
+        button.join-btn(type="submit") Join
   script.
     $("body").on("keydown", function(e) {
       if (e.which === 38) {
@@ -44,12 +45,12 @@ block content
           var newRoom = createKey(10);
           window.location.pathname = "/versus/" + newRoom;
         } else if ($(".join-pointer").text() === "→") {
-          $(".join-form").css("display", "block");
+          $(".join-form").css("display", "flex");
         } else {
           window.location.href = "/";
         }
       } else if (e.which === 27) {
-        if ($(".join-form").css("display") === "block") {
+        if ($(".join-form").css("display") === "flex") {
           $(".join-form").css("display", "none");
         } else {
           window.location.href = "/";
@@ -65,14 +66,14 @@ block content
 
     $(".join-link").on("click", function(e) {
       e.preventDefault();
-      $(".join-form").css("display", "block");
+      $(".join-form").css("display", "flex");
     });
-    
+
     $(".join-btn").on("click", function(e) {
       e.preventDefault();
       window.location.pathname = "/versus/" + $(".key-input").val();
     });
-    
+
     $(".cancel-btn").on("click", function() {
       $(".join-form").css("display", "none");
     })
